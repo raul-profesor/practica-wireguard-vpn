@@ -139,17 +139,17 @@ services:
         - PUID=1000
         - PGID=1000
         - TZ=Europe/Madrid
-        - SERVERURL= Omplir # DNS dinámico
-        - SERVERPORT=51820
-        - PEERS= Omplir # 4 clientes
-        - INTERNAL_SUBNET= Omplir # Red WireGuard
-        - ALLOWEDIPS= Omplir# Red que se enruta
+        - SERVERURL= Omplir # DNS dinàmic
+        - SERVERPORT= Omplir
+        - PEERS= Omplir # 4 clients
+        - INTERNAL_SUBNET= Omplir # Xarxa WireGuard
+        - ALLOWEDIPS= Ompliri # Xarxa que s'enruta
         - LOG_CONFS=false # No guardar conf en logs
       volumes:
         - ./volumes/wireguard:/config
         - /lib/modules:/lib/modules
       ports:
-        - 51820:51820/udp
+        - Omplir:Omplir/udp
       sysctls:
         - net.ipv4.conf.all.src_valid_mark=1
         - net.ipv4.conf.all.forwarding=1
