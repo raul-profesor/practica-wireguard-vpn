@@ -36,7 +36,7 @@ services:
     cap_add:
       - NET_ADMIN
     volumes:
-      - ./wireguard:/etc/wireguard
+      - ./volumes/client1:/etc/wireguard
     privileged: true
     command: /bin/bash -c "echo '1' > /proc/sys/net/ipv4/ip_forward && ip route del default && ip route add default via ${IP_FIREWALL_WAN} && exec sleep infinity"
 
@@ -55,6 +55,8 @@ services:
         ipv4_address: ${IP_CLIENT_2}
     cap_add:
       - NET_ADMIN
+    volumes:
+      - ./volumes/client2:/etc/wireguard
     privileged: true
     command: /bin/bash -c "echo '1' > /proc/sys/net/ipv4/ip_forward && ip route del default && ip route add default via ${IP_FIREWALL_WAN} && exec sleep infinity"
 
