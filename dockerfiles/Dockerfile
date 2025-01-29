@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 # Install necessary packages, including iproute2
 RUN apt-get update && \
