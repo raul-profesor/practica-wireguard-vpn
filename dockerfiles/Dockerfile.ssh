@@ -7,7 +7,7 @@ RUN useradd -rm -d /home/sad -s /bin/bash -g root -G sudo -u 1000 sad
 
 RUN echo 'sad:seguretat' | chpasswd
 
-RUN mkdir /var/run/sshd
+RUN mkdir -p /var/run/sshd
 
 EXPOSE 22
 

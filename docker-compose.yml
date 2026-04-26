@@ -27,9 +27,9 @@ services:
     container_name: client1
     hostname: client1
     extra_hosts:
-      - "webserver: ${IP_WEBSERVER}"
-      - "wireguard: ${IP_WIREGUARD}"
-      - "sshserver: ${IP_SSHSERVER}"
+      - "webserver:${IP_WEBSERVER}"
+      - "wireguard:${IP_WIREGUARD}"
+      - "sshserver:${IP_SSHSERVER}"
     networks:
       wan:
         ipv4_address: ${IP_CLIENT_1}
@@ -47,9 +47,9 @@ services:
     container_name: client2
     hostname: client2
     extra_hosts:
-      - "webserver: ${IP_WEBSERVER}"
-      - "wireguard: ${IP_WIREGUARD}"
-      - "sshserver: ${IP_SSHSERVER}"
+      - "webserver:${IP_WEBSERVER}"
+      - "wireguard:${IP_WIREGUARD}"
+      - "sshserver:${IP_SSHSERVER}"
     networks:
       wan:
         ipv4_address: ${IP_CLIENT_2}
@@ -68,11 +68,11 @@ services:
     hostname: firewall
     working_dir: /usr/local/bin
     extra_hosts:
-      - "client_1: ${IP_CLIENT_1}"
-      - "client_2: ${IP_CLIENT_2}"
-      - "webserver: ${IP_WEBSERVER}"
-      - "sshserver: ${IP_SSHSERVER}"
-      - "wireguard: ${IP_WIREGUARD}"   
+      - "client_1:${IP_CLIENT_1}"
+      - "client_2:${IP_CLIENT_2}"
+      - "webserver:${IP_WEBSERVER}"
+      - "sshserver:${IP_SSHSERVER}"
+      - "wireguard:${IP_WIREGUARD}"   
     networks:
       wan:
         ipv4_address: ${IP_FIREWALL_WAN}
@@ -94,10 +94,10 @@ services:
     container_name: webserver
     hostname: servidorweb
     extra_hosts:
-      - "client_1: ${IP_CLIENT_1}"
-      - "client_2: ${IP_CLIENT_2}"
-      - "sshserver: ${IP_SSHSERVER}"
-      - "wireguard: ${IP_WIREGUARD}"   
+      - "client_1:${IP_CLIENT_1}"
+      - "client_2:${IP_CLIENT_2}"
+      - "sshserver:${IP_SSHSERVER}"
+      - "wireguard:${IP_WIREGUARD}"   
     networks:
       lan:
         ipv4_address: ${IP_WEBSERVER}
@@ -112,8 +112,8 @@ services:
     container_name: ssh_server
     hostname: ssh_server
     extra_hosts:
-      - "client_1: ${IP_CLIENT_1}"
-      - "wireguard: ${IP_WIREGUARD}"
+      - "client_1:${IP_CLIENT_1}"
+      - "wireguard:${IP_WIREGUARD}"
     networks:
       lan:
         ipv4_address: ${IP_SSHSERVER}
@@ -128,8 +128,8 @@ services:
       container_name: wireguard
       hostname: wireguard
       extra_hosts:
-      - "client_1: ${IP_CLIENT_1}"
-      - "server: ${IP_WEBSERVER}"
+      - "client_1:${IP_CLIENT_1}"
+      - "server:${IP_WEBSERVER}"
       networks:
         dmz:
           ipv4_address: ${IP_WIREGUARD}
